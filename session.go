@@ -66,7 +66,7 @@ func (wac *Conn) Login(qrChan chan<- string) (Session, error) {
 
 	session.ClientId = base64.StdEncoding.EncodeToString(clientId)
 	//oldVersion=8691
-	login := []interface{}{"admin", "init", []int{0, 2, 9229}, ["Windows 10","Chrome"], session.ClientId, true}
+	login := []interface{}{"admin", "init", []int{0, 2, 9229}, ["Windows 7","Chrome"], session.ClientId, true}
 	loginChan, err := wac.write(login)
 	if err != nil {
 		return session, fmt.Errorf("error writing login: %v\n", err)
@@ -174,7 +174,7 @@ func (wac *Conn) RestoreSession(session Session) (Session, error) {
 	wac.listener["s1"] = make(chan string, 1)
 
 	//admin init
-	init := []interface{}{"admin", "init", []int{0, 2, 9229}, ["Windows 10","Chrome"], session.ClientId, true}
+	init := []interface{}{"admin", "init", []int{0, 2, 9229}, ["Windows 7","Chrome"], session.ClientId, true}
 	initChan, err := wac.write(init)
 	if err != nil {
 		wac.session = nil
