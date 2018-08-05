@@ -66,7 +66,7 @@ func (wac *Conn) Login(qrChan chan<- string) (Session, error) {
 
 	session.ClientId = base64.StdEncoding.EncodeToString(clientId)
 	//oldVersion=8691
-	login := []interface{}{"admin", "init", []int{0, 2, 9229}, ["Windows 7","Chrome"], session.ClientId, true}
+	login := []interface{}{"admin", "init", []int{0, 3, 225}, []string{"Chrome", "Windows 7"}, session.ClientId, true}
 	loginChan, err := wac.write(login)
 	if err != nil {
 		return session, fmt.Errorf("error writing login: %v\n", err)
