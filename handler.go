@@ -2,8 +2,8 @@ package whatsapp
 
 import (
 	"fmt"
-	"github.com/jhowe2892/go-mkt/binary"
-	"github.com/jhowe2892/go-mkt/binary/proto"
+	"github.com/jhow2892/go-mkt/binary"
+	"github.com/jhow2892/go-mkt/binary/proto"
 	"os"
 )
 
@@ -152,6 +152,8 @@ func (wac *Conn) dispatch(msg interface{}) {
 					}
 				}
 			}
+		} else if message.Description == "response" && message.Attributes["type"] == "contacts" {
+			wac.updateContacts(message.Content)
 		}
 	case error:
 		wac.handle(message)
