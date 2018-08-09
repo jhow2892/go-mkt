@@ -2,7 +2,7 @@ package binary
 
 import (
 	"fmt"
-	"github.com/jhowe2892/go-mkt/binary/proto"
+	"github.com/jhow2892/go-mkt/binary/proto"
 	"reflect"
 	"testing"
 )
