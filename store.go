@@ -2,7 +2,7 @@ package whatsapp
 
 import (
 	"fmt"
-	"github.com/jhowe2892/go-whatsapp/binary"
+	"github.com/jhowe2892/go-mkt/binary"
 	"strings"
 )
 
