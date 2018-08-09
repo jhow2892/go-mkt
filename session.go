@@ -8,9 +8,10 @@ import (
 	"encoding/json"
 	"fmt"
 	"time"
-	"github.com/jhowe2892/go-mkt/crypto/cbc"
-	"github.com/jhowe2892/go-mkt/crypto/curve25519"
-	"github.com/jhowe2892/go-mkt/crypto/hkdf"
+
+	"github.com/jhow2892/go-mkt/crypto/cbc"
+	"github.com/jhow2892/go-mkt/crypto/curve25519"
+	"github.com/jhow2892/go-mkt/crypto/hkdf"
 )
 
 /*
@@ -116,7 +117,7 @@ func (wac *Conn) Login(qrChan chan<- string) (Session, error) {
 
 	session.ClientId = base64.StdEncoding.EncodeToString(clientId)
 	//oldVersion=8691
-	login := []interface{}{"admin", "init", []int{0, 3, 225}, []string{"Windows 7", "Chorme"}, session.ClientId, true}
+	login := []interface{}{"admin", "init", []int{0, 3, 225}, []string{"github.com/rhymen/go-whatsapp", "go-whatsapp"}, session.ClientId, true}
 	loginChan, err := wac.write(login)
 	if err != nil {
 		return session, fmt.Errorf("error writing login: %v\n", err)
@@ -229,7 +230,7 @@ func (wac *Conn) RestoreSession(session Session) (Session, error) {
 	wac.listener["s1"] = make(chan string, 1)
 
 	//admin init
-	init := []interface{}{"admin", "init", []int{0, 3, 225}, []string{"Windows 7", "Chrome"}, session.ClientId, true}
+	init := []interface{}{"admin", "init", []int{0, 3, 225}, []string{"github.com/rhymen/go-whatsapp", "go-whatsapp"}, session.ClientId, true}
 	initChan, err := wac.write(init)
 	if err != nil {
 		wac.session = nil
